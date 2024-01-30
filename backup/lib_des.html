@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="utf-8" http-equiv="encoding"/>
+    <meta content="Sebastien Bégin dessine." name="description"/>
+    <meta content="Montréal / Tiohtiá:ke" name="og:locality"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+    <script crossorigin="anonymous" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js">
+    </script>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js">
+    </script>
+    <script async="" src="js/main.js">
+    </script>
+    <link href="img/icon.gif" rel="icon"/>
+    <link href="scss/nustyle.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="" href="home2.html">
+          <img src="img/menu/seb_begin_50.png"/>
+        </a>
+        <button id="menutoggle" type="button">
+          <input src="img/menu/burger_50.png" type="image"/>
+        </button>
+        <div class="menu">
+          <div class="menucat">
+            <a href="about.html">
+              <img alt="" src="img/menu/about_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="reel.html">
+              <img alt="" src="img/menu/reel_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="digital.html">
+              <img alt="" src="img/menu/digital_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="traditional.html">
+              <img alt="" src="img/menu/traditional_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="sketchbooks.html">
+              <img alt="" src="img/menu/sketchbooks_50.png"/>
+            </a>
+          </div>
+          <!-- <div class="menucat"><div class="spacer"> </div><a class="inactiveLink" href=""><img alt="" src="img/menu/projects_50.png"/></a></div> -->
+          <div class="menucat">
+            <a href="betonautes.html">
+              <img alt="" src="img/menu/betonautes_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="lib_des.html">
+              <img alt="" src="img/menu/lib_des_selected_50.png"/>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="contenu infinite-container blog" id="content-container">
+      <div id="panorama">
+      </div>
+      <script>
+        pannellum.viewer('panorama', {
+        "autoLoad": true,
+        "type": "equirectangular",
+        "panorama": "img/proj/libdes/2022_rework_v03.jpg"
+
+    });
+      </script>
+      <div class="pixel">
+        <p>
+          I started this project after reading Nikolski by Nicolas Dickner.
+          <br/>
+          Part of the story happens in a bookstore that follows its own chaotic logic.
+          <br/>
+          I then visited messy bookstores in montreal to inspire myself and to find unique references.
+        </p>
+        <img alt="" src="img/b/Weird_Perspective2_v2.jpg"/>
+        <img alt="" src="img/b/sphere.jpg"/>
+        <img alt="" src="img/proj/libdes/process_resize.jpg"/>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

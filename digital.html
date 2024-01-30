@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="utf-8" http-equiv="encoding"/>
+    <meta content="Sebastien Bégin dessine." name="description"/>
+    <meta content="Montréal / Tiohtiá:ke" name="og:locality"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+    <script crossorigin="anonymous" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" rel="stylesheet"/>
+    <script async="" src="js/main.js">
+    </script>
+    <link href="img/icon.gif" rel="icon">
+      <link href="scss/nustyle.css" rel="stylesheet" type="text/css"/>
+    </link>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="" href="home2.html">
+          <img src="img/menu/seb_begin_50.png"/>
+        </a>
+        <button id="menutoggle" type="button">
+          <input src="img/menu/burger_50.png" type="image"/>
+        </button>
+        <div class="menu">
+          <div class="menucat">
+            <a href="about.html">
+              <img alt="" src="img/menu/about_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="reel.html">
+              <img alt="" src="img/menu/reel_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="digital.html">
+              <img alt="" src="img/menu/digital_selected_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="traditional.html">
+              <img alt="" src="img/menu/traditional_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="sketchbooks.html">
+              <img alt="" src="img/menu/sketchbooks_50.png"/>
+            </a>
+          </div>
+          <!-- <div class="menucat"><div class="spacer"> </div><a class="inactiveLink" href=""><img alt="" src="img/menu/projects_50.png"/></a></div> -->
+          <div class="menucat">
+            <a href="betonautes.html">
+              <img alt="" src="img/menu/betonautes_50.png"/>
+            </a>
+          </div>
+          <div class="menucat">
+            <a href="lib_des.html">
+              <img alt="" src="img/menu/lib_des_50.png"/>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="fullscreen">
+      <button class="prev fullscreenbutton switch">
+        <img src="img/menu/button_prev_50.png"/>
+      </button>
+      <img id="imgfull" src=""/>
+      <button class="next fullscreenbutton switch">
+        <img src="img/menu/button_next_50.png"/>
+      </button>
+    </div>
+    <div class="digital art" id="content-container">
+      <!-- empty at the end so the flex works -->
+    </div>
+    <script defer="">
+      $(document).ready(function() {
+
+      images = $('.art').find('.artImage');
+
+      function checkButtons() {
+        if (position >= length) {
+          $('.next').removeClass('switch');
+        }else{$('.next').addClass('switch');
+       }
+
+        if (position == 0) {
+          $('.prev').removeClass('switch');
+        }else{$('.prev').addClass('switch');}
+      }
+
+      function updateImage() {
+        if (position <= 0) {
+          prevImage = $('.artImage').children('img').eq(position).attr('data');
+        } else {
+          prevImage = $('.artImage').children('img').eq(position).attr('data');
+        }
+        $('#imgfull').attr("src", prevImage);
+      }
+
+      $('.art').on('click', '.artImage', function(){
+          length = $('.art .artImage').length-2;
+
+          //get the original image size from data attr
+          imgsrc = $(this).children('img').attr('data');
+          position = $(this).index();
+          //activate full screen mode
+          $('#fullscreen').toggleClass('switch');
+          //put image clicked on into fullscreen
+          $('#imgfull').attr("src", imgsrc);
+          checkButtons();
+          //checks which arrows to show or not, depending on if first or last image clicked
+ 
+
+      });
+
+
+      $('#fullscreen').on('click', '.prev', function(){
+        position = position - 1;
+        updateImage();
+        checkButtons();
+      });
+    
+      // Adding keyboard event listener
+      $(document).on('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+          if (position > 0) {position = position - 1;}
+          updateImage();
+          checkButtons();
+        }
+      });
+    
+      $('#fullscreen').on('click', '.next', function(){
+        position = position + 1;
+        updateImage();
+        checkButtons();
+      });
+    
+      // Adding keyboard event listener
+      $(document).on('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          if (position < length) {position = position + 1;}
+          updateImage();
+          checkButtons();
+        }
+      });
+
+      // closes fullscreen on click empty space
+      $('#fullscreen').click( function (e) { 
+        if ( e.target == this ) 
+          $(this).toggleClass('switch');
+    });
+    // closes fullscreen on ESC key
+      $(document).on('keydown', function(e){
+        if (e.key === 'Escape') {
+        $('#fullscreen').removeClass('switch');
+        }
+      })
+  });
+    </script>
+  </body>
+</html>

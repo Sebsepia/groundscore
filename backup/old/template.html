@@ -1,0 +1,63 @@
+<!--     id, post_date, slug, title, title_tag, portfolio_category_id, sketchbook_category_id
+    b_img, b_img_resize, b_img_alt, b_img_description, b_img_paragraph -->
+<div class="post infinite-item" id="{{" slug="" }}="">
+  <div class="intime">
+    <h4>
+      <a class="" href="dump/{{ slug }}">
+        {{ title }}
+      </a>
+    </h4>
+    <div class="date">
+      {{ post_date }}
+    </div>
+    <div class="imgBox">
+      {% for blog_image in blog_images %}
+      <img alt="{{ blog_image['b_img_alt'] }}" src="{{ blog_image['b_img_resize'] }}" title="{{ blog_image['b_img_alt'] }}"/>
+      <a ,="" class="fullsizeBtn">
+        [+]
+      </a>
+      <h5>
+        {{blog_image['b_img_description'] }}
+      </h5>
+      <p>
+        {{ blog_image['b_img_paragraph'] }}
+      </p>
+      {% endfor %}
+      <div class="tags">
+        <h6>
+          <b>
+            Tags:
+          </b>
+        </h6>
+        {% for tags in tag_list %}
+        <h6>
+          <a href="">
+            {{ tags['tag_name'] }}
+          </a>
+        </h6>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {#
+  <!-- {% for blog_image in post.blogimage_set.all %} -->
+  <!-- for panorama -->
+  <!-- <div class="pano-container" id="{{post.slug}}{{pano_image.order}}">
+            <script type="text/javascript">
+              $(document).ready(function () {
+              container = document.querySelector('#{{post.slug}}{{pano_image.order}}');
+              var panorama, viewer, container, thispano, pano;
+              created_pano = new PANOLENS.ImagePanorama('{{ pano_image.p_img.url }}');
+              viewer = new PANOLENS.Viewer({container:container});
+              viewer.add( created_pano );
+
+            });
+            </script>
+            </div> -->
+  <!--     <div class="tags">
+
+        <h6><b>Tags:</b></h6>
+        <h6><a href="{% url 'tag' tags %}">{{tags}}</a></h6>
+    </div> -->
+  #}
+</div>
