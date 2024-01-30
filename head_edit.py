@@ -49,5 +49,5 @@ def overwrite_head_in_directory(directory_path, new_head_file_path):
 directory_path = '.'
 
 # Replace 'your_new_head_file.html' with the path to your new head content HTML file
-new_head_file_path = 'script_html/head.html'
+new_head_file_path = 'html_template/head.html'
 overwrite_head_in_directory(directory_path, new_head_file_path)

@@ -1,3 +1,4 @@
+import bs4
 from bs4 import BeautifulSoup
 import os
 
@@ -75,6 +76,6 @@ def process_html_files(directory_path):
 directory_path = '.'
 
 # Replace 'your_new_nav_file.html' with the path to your new nav content HTML file
-new_nav_file_path = 'script_html/navigation.html'
+new_nav_file_path = 'html_template/navigation.html'
 update_nav_in_directory(directory_path, new_nav_file_path)
 process_html_files(directory_path)
